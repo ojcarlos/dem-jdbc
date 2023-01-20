@@ -26,5 +26,14 @@ public class Main {
             System.out.println(obj);
             
         }
+        System.out.println("=================== find All===========================");
+
+        List<Seller> list2= sellerDao.findAll();
+
+        for (Seller obj:
+                list2) {
+            System.out.println(obj);
+
+        }
     }
 }
