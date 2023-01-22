@@ -26,8 +26,12 @@ public class Main {
             System.out.println(obj);
             
         }
-        System.out.println("=================== find All===========================");
+        Date date = new Date();
+        Seller seller1 = new Seller(16,"Teste2", "teste2@teste.gmail.com" , date, 1200.00, department);
 
+        sellerDao.insert(seller1);
+        System.out.println("=================== find All===========================");
+        System.out.println(seller1);
         List<Seller> list2= sellerDao.findAll();
 
         for (Seller obj:
