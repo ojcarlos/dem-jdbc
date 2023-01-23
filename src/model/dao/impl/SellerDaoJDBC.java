@@ -99,9 +99,37 @@ public class SellerDaoJDBC implements SellerDao {
     }
 
     @Override
-    public void deleteById(Seller obj) {
+    public void deleteById(int id) {
+        Seller seller = this.findById(id);
+        PreparedStatement st =null;
+        if(seller != null){
+            try {
+                st = conn.prepareStatement(
+                        "DELETE FROM seller "
+                                + "WHERE Id = ? "
 
+                );
+
+                st.setInt(1, id);
+
+
+
+                int rowsAffected = st.executeUpdate();
+
+
+
+            } catch (SQLException e) {
+                throw new DbException(e.getMessage());
+            }
+            finally {
+                DB.closeStatment(st);
+
+            }
+        }
+        else{System.out.printLn("não existe o usuario")}
     }
+
+
 
     @Override
     public Seller findById(Integer id) {

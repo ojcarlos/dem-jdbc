@@ -30,14 +30,13 @@ public class Main {
         for (Seller obj : list2) {
             System.out.println(obj);
         }
-        Seller seller2 = new Seller(1,"TesteBob", "teste3@teste.gmail.com" , date, 2400.00, department);
-        sellerDao.update(seller2);
-        System.out.println("=================== UPDATE ===========================");
 
-        List<Seller> list3 = sellerDao.findAll();
-        for (Seller obj : list3) {
+        sellerDao.deleteById(1);
+        System.out.println("=================== delete ===========================");
+
+        List<Seller> list4 = sellerDao.findAll();
+        for (Seller obj : list4) {
             System.out.println(obj);
         }
-
     }
 }
